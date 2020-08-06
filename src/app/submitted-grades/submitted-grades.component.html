@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <th>Grade</th>
+            <th>Transcript</th>
+            <th>Download</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let grade of grades">
+                <td>{{grade.mark}}</td>
+                <td ><a  >{{grade.fileName}}</a> </td>
+                <td><button class="download" class="btn btn-secondary" (click)="downloadFile(grade.id)"><i class="fa fa-download"></i>download transcript</button></td>
+                <td><button class="btn btn-success" (click)=updateGrade(grade.id)>edit</button></td>
+                <td><button class="btn btn-warning" (click)="deleteGrade(grade.id)">delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <button class="btn btn-success" (click)="submitGrade()">Submit Grade</button>
+    </div>
+</div>

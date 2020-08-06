@@ -1,0 +1,30 @@
+<div class="container">
+    <form [formGroup]="ReserveTuitionForm" (ngSubmit)="ReserveTuitionForm.valid && reserve()">
+        <div class="form-group">
+            <label>
+                Select School:
+                <select class="form-control" formControlName="school" [ngClass]="{'is-invalid':ReserveTuitionForm.get('school').touched && ReserveTuitionForm.get('school').invalid}"required>
+                    <option>SFB</option>
+                    <option>KIST</option>
+                </select>
+                <div class="invalid-feedback">
+                    <div>School is required</div>
+                </div>
+            </label>
+        </div>
+       <div class="form-group">
+            <label>
+                Select Semester:
+                <select class="form-control" formControlName="semester" [ngClass]="{'is-invalid':ReserveTuitionForm.get('semester').touched && ReserveTuitionForm.get('semester').invalid}"required>
+                    <option>Fall 2020</option>
+                    <option>Winter 2021</option>
+                </select>
+                <div class="invalid-feedback">
+                    <div>Semester is required</div>
+                </div>
+            </label>
+       </div>
+        
+        <button type="submit" class ="btn btn-success" [disabled]="!ReserveTuitionForm.valid">Reserve</button>
+    </form>
+</div>

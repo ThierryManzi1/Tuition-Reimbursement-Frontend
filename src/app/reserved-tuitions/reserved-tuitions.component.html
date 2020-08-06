@@ -1,0 +1,21 @@
+<div class="container">
+    <table class="table">
+        <thead>
+            <th>School</th>
+            <th>Semester</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let tuition of tuitions">
+                <td>{{tuition.school}}</td>
+                <td>{{tuition.semester}}</td>
+                <td><button (click)="updateTuition(tuition.id)" class="btn btn-success" >Edit </button></td>
+                <td><button (click)="deleteTuition(tuition.id)" class="btn btn-warning">Delete </button></td>
+            </tr>
+        </tbody>
+    </table>
+    <div >
+        <button class="btn btn-success" (click)="reserveTuition()">Reserve Tuition</button>
+    </div>
+</div>

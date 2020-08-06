@@ -1,0 +1,14 @@
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+          <ul class="navbar-nav">
+            <li *ngIf=isUserLoggedIn()><a routerLink="/welcome" class="nav-link">Home</a></li>
+            <li *ngIf=isUserLoggedIn()><a routerLink="/reservedTuitions" class="nav-link">Reserved Tuitions</a></li>
+            <li *ngIf=isUserLoggedIn()><a routerLink="/submittedGrades" class="nav-link">Submitted Grades</a></li>
+          </ul>
+          <ul class="navbar-nav navbar-collapse justify-content-end">
+            <li *ngIf= !isUserLoggedIn()><a routerLink="/login" class="nav-link">Login</a></li>
+            <li *ngIf= !isUserLoggedIn()><a routerLink="/register" class="nav-link">Register</a></li>
+            <li *ngIf=isUserLoggedIn()><a routerLink="/logout" class="nav-link">Logout</a></li>
+         </ul> 
+    </nav>
+</header>

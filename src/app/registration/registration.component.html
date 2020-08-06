@@ -1,0 +1,49 @@
+<div class="container">
+    <form name="RegistrationForm" [formGroup]="RegistrationForm" (ngSubmit)="RegistrationForm.valid && register()">
+        <div class="form-group"> 
+            <label>
+                Username:
+                <input type="text" formControlName="userName" class ="form-control" [ngClass]="{'is-invalid':RegistrationForm.get('userName').touched && RegistrationForm.get('userName').invalid}"required/>
+                <div class="invalid-feedback">
+                    <div>Username is required</div>
+                </div>
+            </label>
+            
+        </div>
+        <div class="form-group">
+            <label>
+                Password:
+                <input type="password" formControlName="password" class ="form-control" [ngClass]="{'is-invalid':RegistrationForm.get('password').touched && RegistrationForm.get('password').invalid}"required/>
+                <div *ngIf="RegistrationForm.get('password').touched && RegistrationForm.get('password').invalid"  class="invalid-feedback">
+                    <div *ngIf="RegistrationForm.get('password').errors.required">Password is required</div>
+                    <div *ngIf="RegistrationForm.get('password').errors.minlength">Password  must be atleast 5 characters</div>
+                </div>
+            </label>
+        </div>
+        <div class="form-group">  
+            <label>
+                Confirm Password:
+                <input type="password" formControlName="passwordConfirm" class ="form-control" [ngClass]="{'is-invalid':RegistrationForm.get('passwordConfirm').touched && RegistrationForm.get('passwordConfirm').invalid}"required/>
+                <div *ngIf="RegistrationForm.get('passwordConfirm').touched && RegistrationForm.get('passwordConfirm').invalid"  class="invalid-feedback">
+                    <div *ngIf="RegistrationForm.get('passwordConfirm').errors.required">Password is required</div>
+                    <div *ngIf="RegistrationForm.get('passwordConfirm').errors.mustMatch">Password and Confirm Password must match.</div>
+                </div>
+            </label>
+        </div>
+        <div class="form-group"> 
+            <label>
+                Select Role:
+                <select formControlName="roles" class ="form-control"[ngClass]="{'is-invalid':RegistrationForm.get('roles').touched && RegistrationForm.get('roles').invalid}"required>
+                    <option>admin</option>
+                    <option>member</option>
+                </select>
+                <div class="invalid-feedback">
+                    <div>Role is required</div>
+                </div>
+            </label>
+        </div>
+        <button type="submit" class="btn btn-success" [disabled]="!RegistrationForm.valid">Register</button>
+    </form>
+</div>
+
+<br>
